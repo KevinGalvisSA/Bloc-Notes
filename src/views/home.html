@@ -20,10 +20,14 @@
             </div>
         </header>
         <main class="app-main">
-            <div class="illustration">
+            <div class="illustration" id="illustration">
                 <img src="../storage/img/rafiki.png" alt="Illustration" />
-                <p>Create your first note !</p>
-                <button class="add-button">+</button>
+                <p>Create your first note!</p>
+            </div>
+            <button class="add-button" id="addButton">+</button>
+        
+            <div class="notes-container" id="notesContainer">
+                <!-- Aquí se agregarán las notas dinámicamente -->
             </div>
         </main>
     </div>
@@ -40,6 +44,7 @@
         </div>
     </div>
     
+    <script type="module" src="../js/components/note.js"></script>
     <script type="module" src="../js/home.js"></script>
 </body>
 </html>

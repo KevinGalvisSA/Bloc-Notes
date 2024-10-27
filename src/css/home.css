@@ -88,8 +88,32 @@ body {
     justify-content: center;
     cursor: pointer;
     position: absolute;
-    right: 70px;
+    right: 50px;
     bottom: 70px;
+}
+
+.card-carousel {
+    display: flex; /* Mantener flex para alinear las tarjetas */
+    flex-direction: column; /* Cambia a columna para que las tarjetas se apilen verticalmente */
+    overflow-y: auto; /* Permite el desplazamiento vertical */
+    padding: 10px; /* Espacio alrededor del carrusel */
+    max-height: 100%; /* Asegúrate de que el carrusel no exceda la altura de su contenedor */
+    scrollbar-width: none; 
+}
+
+.notes-container {
+    display: flex; /* Asegúrate de que sea un contenedor flexible */
+    flex-direction: column; /* Las notas se apilan en columna */
+    align-items: center; /* Alineación centrada */
+    gap: 10px; /* Espacio entre tarjetas */
+    width: 100%;
+    max-height: 100%; /* Limita la altura para que el carrusel no sobresalga */
+}
+
+book-card {
+    margin-bottom: 10px; /* Espacio entre tarjetas verticalmente */
+    /* Asegúrate de que las tarjetas tengan una altura fija si es necesario */
+    min-height: 100px; /* Puedes ajustar esto según tus necesidades */
 }
 
 /* Estilos del modal */
@@ -121,9 +145,8 @@ body {
     justify-content: space-around;
 }
 
-.modal-content .content-made{
+.modal-content .content-made {
     width: 100%;
-
 }
 
 .close-button {
