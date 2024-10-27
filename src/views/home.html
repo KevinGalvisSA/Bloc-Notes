@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aplicación de Notas</title>
+    <link rel="stylesheet" href="../css/home.css">
+</head>
+<body>
+    <div class="app-container">
+        <header class="app-header">
+            <h1>Notes</h1>
+            <div class="header-icons">
+                <button class="icon-button">
+                    <span>&#128269;</span> <!-- Icono de lupa (Buscar) -->
+                </button>
+                <button class="icon-button">
+                    <span>&#9432;</span> <!-- Icono de información -->
+                </button>
+            </div>
+        </header>
+        <main class="app-main">
+            <div class="illustration">
+                <img src="../storage/img/rafiki.png" alt="Illustration" />
+                <p>Create your first note !</p>
+                <button class="add-button">+</button>
+            </div>
+        </main>
+    </div>
+
+    <div class="modal" id="infoModal">
+        <div class="modal-content">
+            <span class="close-button" id="closeModal">&times;</span>
+            <p>Designed by - </p>
+            <p>Redesigned by - </p>
+            <p>Illustrations - </p>
+            <p>Icons - </p>
+            <p>Font - </p>
+            <p class="content-made">Made by <br> Kevin Galvis</p>
+        </div>
+    </div>
+    
+    <script type="module" src="../js/home.js"></script>
+</body>
+</html>

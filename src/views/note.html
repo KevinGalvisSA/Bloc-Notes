@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editor de Notas</title>
+    <link rel="stylesheet" href="../css/note.css">
+</head>
+<body>
+    <div class="app-container">
+        <header class="app-header">
+            <button class="icon-button back-button" id="back">&#8592;</button> <!-- Botón de regreso -->
+            <div class="header-icons">
+                <button class="icon-button view-button">&#128065;</button> <!-- Icono de vista -->
+                <button class="icon-button save-button" onclick="showModal('save')">&#128190;</button> <!-- Icono de guardar -->
+            </div>
+        </header>
+        
+        <main class="note-editor">
+            <h1 id="noteTitle" contenteditable="true" class="title">Title</h1>
+            <textarea id="noteContent" placeholder="Type something..."></textarea>
+        </main>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal" id="confirmationModal" style="display: none;">
+        <div class="modal-content">
+            <h2 id="modalTitle">Save changes?</h2>
+            <p id="modalMessage">Are you sure you want to save changes?</p>
+            <button class="cancel-button" id="modalCancel">Discard</button>
+            <button class="confirm-button" id="modalConfirm">Save</button>
+        </div>
+    </div>
+    
+    <script src="../js/note.js"></script>
+</body>
+</html>
