@@ -1,8 +1,6 @@
-
 /*
- *Modal de confirmacion al querer guardar una nota
+ * Modal de confirmación al querer guardar una nota
  */
-
 const modal = document.getElementById('confirmationModal');
 const modalTitle = document.getElementById('modalTitle');
 const modalMessage = document.getElementById('modalMessage');
@@ -12,13 +10,17 @@ const modalCancel = document.getElementById('modalCancel');
 // Variable para rastrear si estamos en el estado de "descartar"
 let isDiscarding = false;
 
+// Seleccionar los elementos de título y contenido de la nota
+const noteTitle = document.getElementById("noteTitle");
+const noteContent = document.getElementById("noteContent");
+
 // Función para mostrar el modal
 function showModal(action) {
     if (action === 'save') {
         modalTitle.innerText = 'Save changes?';
-        modalMessage.innerText = '';
+        modalMessage.innerText = 'Are you sure you want to save changes?';
         modalConfirm.innerText = 'Save';
-        modalConfirm.onclick = saveNote; // Función para guardar la nota
+        modalConfirm.onclick = saveNote; // Asignar la función de guardar
         isDiscarding = false; // No estamos en el estado de "descartar"
     }
     modal.style.display = 'flex'; // Muestra el modal
@@ -41,15 +43,22 @@ modalCancel.onclick = function() {
     }
 };
 
-// Funciones de ejemplo para guardar y descartar notas
+// Función para guardar la nota en localStorage
 function saveNote() {
-    // Lógica para guardar la nota
+    const title = noteTitle.textContent.trim(); // Título del h1
+    const content = noteContent.value.trim(); // Contenido del textarea
+    
+    // Guardar en localStorage
+    localStorage.setItem('noteTitle', title);
+    localStorage.setItem('noteContent', content);
+
     console.log('Nota guardada');
     modal.style.display = 'none'; // Oculta el modal después de guardar
+    alert("Nota guardada con éxito."); // Notificación opcional
 }
 
+// Función para descartar cambios en la nota
 function discardNote() {
-    // Lógica para descartar la nota
     console.log('Cambios descartados');
     modal.style.display = 'none'; // Oculta el modal después de descartar
     isDiscarding = false; // Reiniciar el estado de "descartar"
@@ -58,19 +67,15 @@ function discardNote() {
 /*
  * Funcionamiento del botón de retroceder
  */
-
 const goback = document.getElementById('back');
-
 goback.onclick = function() {
     window.history.back();
 };
 
 /*
- *Funcionamiento de los inputs de texto en el titulo y contenido 
+ * Funcionamiento de los inputs de texto en el título y contenido
  */
-const noteTitle = document.getElementById("noteTitle");
-
-// Al hacer clic, si el texto es "Title", lo borra para permitir la escritura
+// Al hacer clic en el título, si es "Title", lo borra para permitir la escritura
 noteTitle.addEventListener("focus", () => {
     if (noteTitle.innerText.trim() === "Title") {
         noteTitle.innerText = "";
@@ -84,4 +89,13 @@ noteTitle.addEventListener("blur", () => {
         noteTitle.innerText = "Title";
         noteTitle.style.color = "gray"; // Cambia el color al gris para el placeholder
     }
+});
+
+// Opcional: cargar el contenido guardado al cargar la página
+document.addEventListener('DOMContentLoaded', () => {
+    const savedTitle = localStorage.getItem('noteTitle');
+    const savedContent = localStorage.getItem('noteContent');
+    
+    if (savedTitle) noteTitle.textContent = savedTitle;
+    if (savedContent) noteContent.value = savedContent;
 });
